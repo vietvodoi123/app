@@ -27,14 +27,6 @@ function CompanyNav({}: Props) {
         dispatch(setCompanyNav("chucvu"));
       },
     },
-    {
-      label: "Nhân Viên",
-      key: "nhanvien",
-      icon: <FaUserAlt className="text-white w-[20px] h-[20px]" />,
-      onClick: () => {
-        dispatch(setCompanyNav("nhanvien"));
-      },
-    },
   ];
   return (
     <Menu
