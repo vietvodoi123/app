@@ -417,11 +417,11 @@ export interface IDataProjectSalary {
 }
 
 export interface IAccountInfo {
-  user?: IUserLogin;
-  accessToken?: string;
+  user?: IUserLogin; // chứa thông tin user
+  accessToken?: string; // token kết nối
   refreshToken?: string;
   isConfirmed?: boolean;
-  dataProfile?: IProfile;
+  dataProfile?: IProfile; //profile của user
   role?: {
     id: number;
     roleName: string;

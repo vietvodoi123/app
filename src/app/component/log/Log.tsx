@@ -47,7 +47,8 @@ function Log() {
         <Suspense fallback={<Spin size="large" delay={500} />}>
           {key === "sendOtp" && <FormOtp />}
           {key === "signin" && <Login />}
-          {key === "register" && <Register />}
+          {/* {key === "register" && <Register />} */}
+          {key === "register" && <FormOtp />}
           {key === "forgotpass" && <ForgotPass />}
           {key === "newpassword" && <NewPassword />}
         </Suspense>

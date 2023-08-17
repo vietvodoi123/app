@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface INavState {
-  key: string;
-  email: string | null;
-  steps: number;
-  workspace: number | null;
+  key: string; // key chuyển page của thanh điều hướng
+  email: string | null; // email để xác thực lúc đăng ký
+  steps: number; // vị trí ở trong các bước đăng ký
+  workspace: number | null; // id company đang làm việc
 }
 const initialState: INavState = {
   key: "signin",

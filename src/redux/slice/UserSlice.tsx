@@ -7,9 +7,11 @@ const UserSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    // action đăng nhập
     loginUser: (_, action: PayloadAction<IAccountInfo>) => {
       return action.payload;
     },
+    // action đăng xuất
     logoutUser: () => {
       return initialState;
     },

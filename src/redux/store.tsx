@@ -13,10 +13,6 @@ import {
 import UserReducer from "./slice/UserSlice";
 import NavReducer from "./slice/NavSlice";
 import CompanyNavReducer from "./slice/CompanyNavSlice";
-// import MenuReducer from "./slices/MenuSlice";
-// import SalaryReducer from "./slices/SalarySlice";
-// import ModalReducer from "./slices/ModalSlice";
-// import MenuSalaryReducer from "./slices/MenuSalarySlice";
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 
