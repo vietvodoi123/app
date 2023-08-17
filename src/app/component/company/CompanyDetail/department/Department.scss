@@ -1,0 +1,10 @@
+.title-department::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  background-color: black;
+  width: 400px;
+  height: 2px;
+}

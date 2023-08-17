@@ -1,0 +1,41 @@
+.input-container {
+  font-size: 16px;
+  font-weight: 400;
+  color: #37b24d;
+  margin-bottom: 10px;
+  .label-container {
+    display: flex;
+    padding-bottom: 6px;
+    line-height: 20px;
+
+    .require-label {
+      font-size: 14px;
+    }
+  }
+  .ant-input-affix-wrapper {
+    border-radius: 0 !important;
+  }
+  .input {
+    border-radius: 8px;
+    border: none;
+    padding: 12px 20px;
+    background-color: inherit;
+  }
+  .error {
+    border: 1px solid red;
+  }
+  .input input {
+    color: white;
+    background-color: inherit !important;
+  }
+  .anticon.anticon-eye-invisible.ant-input-password-icon,
+  .anticon.anticon-close-circle {
+    color: white;
+  }
+  .input input::placeholder,
+  .input::placeholder {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,38 @@
+.input-container {
+  font-size: 16px;
+  font-weight: 400;
+  color: #868e96;
+  margin-bottom: 10px;
+  .label-container {
+    display: flex;
+    padding-bottom: 6px;
+    line-height: 20px;
+
+    .require-label {
+      color: red;
+      font-size: 14px;
+    }
+  }
+  .input {
+    border-radius: 8px;
+    border: none;
+    padding: 12px 20px;
+    background-color: #f1f3f5;
+  }
+  .error {
+    border: 1px solid red;
+  }
+  .input input {
+    background-color: inherit !important;
+  }
+  .input input::placeholder,
+  .input::placeholder {
+    color: #adb5bd;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .ant-input {
+    background-color: #f1f3f5 !important;
+  }
+  
+}

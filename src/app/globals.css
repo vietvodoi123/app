@@ -18,10 +18,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+.container-login {
+  background-color: rgb(0, 0, 0);
+  opacity: 0.7;
+  width: 500px;
+  padding: 50px;
+  color: white;
 }

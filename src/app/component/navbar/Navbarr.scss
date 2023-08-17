@@ -1,0 +1,26 @@
+.navbar.ant-menu-overflow {
+  border-bottom: 0;
+  padding: 10px 0;
+  background-color: inherit;
+  opacity: 0.7;
+  color: white;
+  background-color: black;
+  opacity: 0.85;
+  align-items: center;
+  .ant-menu-overflow-item:nth-child(2) {
+    margin-left: auto;
+  }
+  .icon-nav {
+    width: 30px;
+    height: 30px;
+  }
+  .icon-nav:hover {
+    color: white;
+  }
+}
+.menu-hover {
+  position: absolute;
+  right: 0;
+  background-color: white;
+  z-index: 2;
+}

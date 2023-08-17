@@ -1,0 +1,20 @@
+.button-container {
+  .button {
+    font-size: 16px;
+    font-weight: 700;
+
+    border: none;
+    text-shadow: none;
+
+    border-radius: 8px;
+    height: 48px;
+    width: initial;
+    min-width: 100%;
+    &:hover {
+      background-color: white;
+    }
+  }
+  .signBtn {
+    margin-top: 20px;
+  }
+}
