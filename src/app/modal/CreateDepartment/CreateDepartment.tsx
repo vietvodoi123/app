@@ -8,9 +8,11 @@ type Props = {
   isOpen: boolean;
   idCompany: string;
   setIsOpen: (state: boolean) => void;
+  setA: (value: number) => void;
+  a: number;
 };
 
-function CreateDepartment({ isOpen, idCompany, setIsOpen }: Props) {
+function CreateDepartment({ isOpen, idCompany, setIsOpen, setA, a }: Props) {
   const [fileUpload, setFileUpload] = useState<File>();
 
   const [form] = Form.useForm();
@@ -50,7 +52,7 @@ function CreateDepartment({ isOpen, idCompany, setIsOpen }: Props) {
         },
         {
           onSuccess: (res: any) => {
-            console.log(res);
+            setA(a + 1);
             setIsOpen(false);
             notification.success({
               message: "Create department sucessfull !",

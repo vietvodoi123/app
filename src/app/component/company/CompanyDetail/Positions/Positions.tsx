@@ -13,19 +13,24 @@ type Props = { idCompany: string };
 
 function Positions({ idCompany }: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [key, setKey] = useState("");
-  const [animate, setAnimate] = useState("[slide-in-left_1s_ease-in-out]");
+  const [a, setA] = useState(1);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(10);
   const [data, setData] = useState<IDataPositions[]>([]);
 
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
     if (key === "") {
       const x = Apipositions.getAllPositions(idCompany);
-      x.then((y) => setData(y));
+      x.then((y) => {
+        setData(y);
+      });
     }
-  }, [setData]);
+  }, [setData, a]);
   useEffect(() => {
     if (data?.length) {
       if (data.length % 2 === 1) {
@@ -36,6 +41,7 @@ function Positions({ idCompany }: Props) {
       }
     }
   }, [data?.length]);
+
   function handleOnSearch(value: string) {
     setIsLoading(true);
     Apipositions.getAllPositionsBySearch(idCompany, value)
@@ -86,12 +92,6 @@ function Positions({ idCompany }: Props) {
             defaultCurrent={1}
             total={total}
             onChange={(e) => {
-              if (e > page) {
-                setAnimate("[slide-in-right_1s_ease-in-out]");
-              }
-              if (e < page) {
-                setAnimate("[slide-in-left_1s_ease-in-out]");
-              }
               setPage(e);
             }}
           />
@@ -101,6 +101,8 @@ function Positions({ idCompany }: Props) {
           idCompany={idCompany}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
+          a={a}
+          setA={setA}
         />
       )}
     </div>

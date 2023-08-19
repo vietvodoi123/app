@@ -2,12 +2,13 @@ import { fetcher } from "./Fetcher";
 
 const path = {
   abilities: "/abilities",
+  getme: "/abilities/me",
 };
 
 function getMe(companyId: string) {
   return fetcher(
     {
-      url: path.abilities,
+      url: path.getme,
       method: "get",
     },
     {

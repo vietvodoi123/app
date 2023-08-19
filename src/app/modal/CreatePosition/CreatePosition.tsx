@@ -7,9 +7,11 @@ type Props = {
   isOpen: boolean;
   idCompany: string;
   setIsOpen: (state: boolean) => void;
+  a: number;
+  setA: (value: number) => void;
 };
 
-function CreatePositions({ isOpen, idCompany, setIsOpen }: Props) {
+function CreatePositions({ isOpen, idCompany, setIsOpen, a, setA }: Props) {
   const [fileUpload, setFileUpload] = useState<File>();
 
   const handleChooseFile = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -45,7 +47,7 @@ function CreatePositions({ isOpen, idCompany, setIsOpen }: Props) {
         },
         {
           onSuccess: (res: any) => {
-            console.log(res);
+            setA(a + 1);
             setIsOpen(false);
             notification.success({
               message: "Create positions sucessfull !",

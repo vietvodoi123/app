@@ -4,7 +4,7 @@ import { TextInput } from "@/app/modal/textInput/TextInput";
 import { loginUser } from "@/redux/slice/UserSlice";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { IAccountInfo } from "@/types";
-import { Form } from "antd";
+import { Form, notification } from "antd";
 import { ErrorMessage, Formik } from "formik";
 import React from "react";
 import { useMutation } from "react-query";
@@ -27,14 +27,9 @@ function Login({}: Props) {
       .max(30, "Password must not exceed 50 characters"),
   });
 
-  const handleLogin = (
-    values: ILoginBody,
-    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
-  ): void => {
+  const handleLogin = (values: ILoginBody): void => {
     if (values.email != "" && values.password != "") {
       const username = values.email.split("@")[0];
-      console.log(username, values);
-
       loginMutation.mutate(
         {
           username: username,
@@ -45,19 +40,17 @@ function Login({}: Props) {
         {
           onSuccess: (res: IAccountInfo) => {
             console.log("dang nhap thanh cong");
-
             dispatch(loginUser({ ...res }));
             localStorage.setItem("role", res.role?.id?.toString() || "0");
-            setSubmitting(false);
             window.location.replace("/");
           },
           onError: (error) => {
-            setSubmitting(false);
+            notification.warning({
+              message: "email or password invalid",
+            });
           },
         }
       );
-    } else {
-      setSubmitting(false);
     }
   };
 

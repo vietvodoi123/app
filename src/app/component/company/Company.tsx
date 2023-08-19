@@ -37,7 +37,7 @@ function Company() {
         setIsLoading(false);
       }
       setA(a + 1);
-    }, 1000);
+    }, 1500);
   }, [key, data, a]);
 
   useEffect(() => {

@@ -14,13 +14,17 @@ import Link from "next/link";
 import { persistor } from "@/redux/store";
 import { logoutUser } from "@/redux/slice/UserSlice";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { setNavKey } from "@/redux/slice/NavSlice";
+import { setNavKey, setWorkspaceId } from "@/redux/slice/NavSlice";
 import LoadingSpin from "../LoadingSpin";
 
 function Navbar() {
   const dispatch = useDispatch();
   const [openDrawer, setOpenDrawer] = useState(false);
   const { data } = useQuery("data", ApiUser.getMe);
+  if (data?.profile?.workspaceId) {
+    const a = data?.profile?.workspaceId;
+    dispatch(setWorkspaceId(a));
+  }
 
   const handleLogout = (): void => {
     Modal.confirm({

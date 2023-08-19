@@ -12,19 +12,22 @@ import Search from "antd/es/input/Search";
 function Department({ idCompany }: { idCompany: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [key, setKey] = useState("");
-  const [animate, setAnimate] = useState("[slide-in-left_1s_ease-in-out]");
+  const [a, setA] = useState(1);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(10);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<IDataDepartment[]>([]);
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
     if (key === "") {
       const data1 = ApiDepartment.getAllDepartment(idCompany);
       data1.then((d) => {
         return setData(d);
       });
     }
-  }, [setData]);
+  }, [setData, a]);
 
   useEffect(() => {
     if (data?.length) {
@@ -71,12 +74,7 @@ function Department({ idCompany }: { idCompany: string }) {
           Create
         </Button>
       </div>
-      <div
-        data-te-animation-init
-        data-te-animation-reset="true"
-        data-te-animation={animate}
-        className="animate-[fade-in-left_1s_ease-in-out]"
-      >
+      <div>
         {data.length === 0 && (
           <div className=" p-10">
             <Empty />
@@ -93,12 +91,6 @@ function Department({ idCompany }: { idCompany: string }) {
             defaultCurrent={1}
             total={total}
             onChange={(e) => {
-              if (e > page) {
-                setAnimate("[slide-in-right_1s_ease-in-out]");
-              }
-              if (e < page) {
-                setAnimate("[slide-in-left_1s_ease-in-out]");
-              }
               setPage(e);
             }}
           />
@@ -108,6 +100,8 @@ function Department({ idCompany }: { idCompany: string }) {
           idCompany={idCompany}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
+          setA={setA}
+          a={a}
         />
       )}
     </div>
