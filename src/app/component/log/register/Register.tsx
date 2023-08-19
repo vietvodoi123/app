@@ -108,7 +108,10 @@ function Login() {
         errors,
         touched,
       }): JSX.Element => (
-        <Form onFinish={handleSubmit}>
+        <Form
+          onFinish={handleSubmit}
+          className="animate-[fade-in-left_1s_ease-in-out]"
+        >
           <div className="text-white text-[32px] text-center mb-7">
             REGISTER HERE
           </div>
@@ -117,7 +120,7 @@ function Login() {
               label=""
               name="email"
               errors={errors.email ? true : false}
-              touched={errors.email ? true : false}
+              touched={touched.email ? true : false}
               placeholder={"EMAIL"}
               value={values.email}
               handleChange={handleChange}
@@ -125,7 +128,7 @@ function Login() {
             <ErrorMessage
               name="email"
               component="div"
-              className="error-message"
+              className="error-message text-red-500"
             />
           </div>
           <div>
@@ -134,7 +137,7 @@ function Login() {
               label=""
               name="password"
               errors={errors.password ? true : false}
-              touched={errors.password ? true : false}
+              touched={touched.password ? true : false}
               placeholder={"PASSWORD"}
               value={values.password}
               handleChange={handleChange}
@@ -142,7 +145,7 @@ function Login() {
             <ErrorMessage
               name="password"
               component="div"
-              className="error-message"
+              className="error-message text-red-500"
             />
           </div>
 

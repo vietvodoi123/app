@@ -51,8 +51,8 @@ function UserPage() {
     <>
       <Navbar />
       <Suspense fallback={<LoadingSpin />}>
-        <div className="flex flex-col justify-center items-center mt-16 relative">
-          <div className=" relative">
+        <div className="flex flex-col justify-center items-center mt-16 relative animate-[fade-in_1s_ease-in-out]">
+          <div className=" relative ">
             <img
               src={data?.avatar ? data.avatar : "/img/avatar/avatar.jpg"}
               width={200}

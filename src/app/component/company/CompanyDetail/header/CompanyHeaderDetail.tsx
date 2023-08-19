@@ -57,7 +57,7 @@ function CompanyHeaderDetail({ company }: Props) {
         backgroundSize: "cover",
       }}
     >
-      <div className="bg-black text-white w-[100%] opacity-80 pt-12 px-14 pb-8 absolute bottom-0 left-0">
+      <div className="bg-black text-white w-[100%] opacity-80 pt-12 px-14 pb-8 absolute bottom-0 left-0 animate-[fade-in-up_1s_ease-in-out]">
         <div className="mb-14">
           <h1 className="text-[32px] mb-3">
             <BsFillBuildingFill className="text-white inline mr-5" />

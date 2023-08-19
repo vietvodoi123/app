@@ -8,7 +8,7 @@ export default function Home() {
   const login = !ApiUser.isLogin();
 
   if (!login === true) {
-    router.push("/home");
+    router.replace("/home");
   }
   return <Log />;
 }

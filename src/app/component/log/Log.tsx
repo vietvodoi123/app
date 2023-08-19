@@ -28,6 +28,7 @@ function Log() {
         key === "newpassword") && (
         <div style={{ width: "600px" }}>
           <Steps
+            className="animate-[fade-in-left_1s_ease-in-out]"
             current={steps}
             items={[
               {
@@ -47,8 +48,7 @@ function Log() {
         <Suspense fallback={<Spin size="large" delay={500} />}>
           {key === "sendOtp" && <FormOtp />}
           {key === "signin" && <Login />}
-          {/* {key === "register" && <Register />} */}
-          {key === "register" && <FormOtp />}
+          {key === "register" && <Register />}
           {key === "forgotpass" && <ForgotPass />}
           {key === "newpassword" && <NewPassword />}
         </Suspense>

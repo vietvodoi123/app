@@ -85,7 +85,7 @@ export default function NewPassword(): JSX.Element {
         errors,
         touched,
       }): JSX.Element => (
-        <div className="container-sign-in">
+        <div className="container-sign-in animate-[fade-in_1s_ease-in-out]">
           <button
             type="button"
             className="btn-back-page"

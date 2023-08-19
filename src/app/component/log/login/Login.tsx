@@ -75,13 +75,15 @@ function Login({}: Props) {
     >
       {({
         values,
-        setSubmitting,
         handleChange,
         handleSubmit,
         errors,
         touched,
       }): JSX.Element => (
-        <Form onFinish={handleSubmit}>
+        <Form
+          onFinish={handleSubmit}
+          className="animate-[fade-in-left_1s_ease-in-out]"
+        >
           <div className="text-white text-[32px] text-center mb-7">
             LOGIN HERE
           </div>
@@ -90,7 +92,7 @@ function Login({}: Props) {
               label=""
               name="email"
               errors={errors.email ? true : false}
-              touched={errors.email ? true : false}
+              touched={touched.email ? true : false}
               placeholder={"EMAIL"}
               value={values.email}
               handleChange={handleChange}
@@ -107,7 +109,7 @@ function Login({}: Props) {
               label=""
               name="password"
               errors={errors.password ? true : false}
-              touched={errors.password ? true : false}
+              touched={touched.password ? true : false}
               placeholder={"PASSWORD"}
               value={values.password}
               handleChange={handleChange}

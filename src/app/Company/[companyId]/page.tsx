@@ -26,7 +26,6 @@ function CompanyDetailPage({ params }: { params: { companyId: string } }) {
       <CompanyNav />
       {nav === "phongban" && <Department idCompany={params.companyId} />}
       {nav === "chucvu" && <Positions idCompany={params.companyId} />}
-      {nav === "nhanvien" && <div>nhan vien</div>}
     </div>
   );
 }

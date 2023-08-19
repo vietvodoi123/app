@@ -63,7 +63,10 @@ function ForgotPass({}: Props) {
         errors,
         touched,
       }): JSX.Element => (
-        <Form onFinish={handleSubmit}>
+        <Form
+          onFinish={handleSubmit}
+          className="animate-[fade-in-left_1s_ease-in-out]"
+        >
           <div className="text-white text-[32px] text-center mb-7">
             FORGET PASSWORD
           </div>
@@ -72,7 +75,7 @@ function ForgotPass({}: Props) {
               label=""
               name="email"
               errors={errors.email ? true : false}
-              touched={errors.email ? true : false}
+              touched={touched.email ? true : false}
               placeholder={"EMAIL"}
               value={values.email}
               handleChange={handleChange}

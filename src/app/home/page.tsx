@@ -6,7 +6,7 @@ type Props = {};
 function Home({}: Props) {
   return (
     <div
-      className="relative"
+      className="relative animate-[fade-in_1s_ease-in-out]"
       style={{
         backgroundImage: `url("/img/banner.jpg")`,
         backgroundPosition: "center",
@@ -16,7 +16,7 @@ function Home({}: Props) {
       }}
     >
       <Navbar />
-      <div className="absolute left-0 bottom-0 p-5">
+      <div className="absolute left-0 bottom-0 p-5 animate-[fade-in-left_1s_ease-in-out]">
         <h1 className="text-white text-[58px]">
           Company
           <br /> Mission & Goals
@@ -25,7 +25,6 @@ function Home({}: Props) {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           <br /> Incidunt qui nesciunt magni.
         </p>
-        N
       </div>
     </div>
   );

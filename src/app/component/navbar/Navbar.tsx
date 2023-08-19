@@ -14,6 +14,7 @@ import Link from "next/link";
 import { persistor } from "@/redux/store";
 import { logoutUser } from "@/redux/slice/UserSlice";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { setNavKey } from "@/redux/slice/NavSlice";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function Navbar() {
           .purge()
           .then(() => {
             dispatch(logoutUser());
+            dispatch(setNavKey("signin"));
             window.location.replace("/");
           })
           .catch(() => {
@@ -68,7 +70,8 @@ function Navbar() {
       label: (
         <div className=" relative">
           <MdNotifications className="icon-nav" />
-          <div className=" absolute bg-red-400 w-[10px] h-[10px] rounded-full top-0 right-0"></div>
+          <div className=" absolute animate-ping bg-red-400 w-[13px] h-[13px] rounded-full top-0 right-0"></div>
+          <span className=" absolute top-0 right-0 rounded-full h-3 w-3 bg-red-500"></span>
         </div>
       ),
       key: "notice",
@@ -177,9 +180,12 @@ function Navbar() {
 
         { label: "Change Password", key: "changePass", icon: <ImKey /> },
         {
-          label: <span onClick={handleLogout}>Log out</span>,
+          label: "Log out",
           key: "logout",
           danger: true,
+          onclick: () => {
+            handleLogout;
+          },
           icon: <MdExitToApp />,
         },
       ],
@@ -212,13 +218,13 @@ function Navbar() {
     <div style={{ position: "relative" }}>
       <Menu
         defaultOpenKeys={["signin"]}
-        className="navbar hidden md:flex"
+        className="navbar hidden md:flex animate-[fade-in-down_1s_ease-in-out]"
         mode="horizontal"
         items={items}
       ></Menu>
       <Menu
         defaultOpenKeys={["signin"]}
-        className="navbar md:hidden"
+        className="navbar md:hidden animate-[fade-in-down_1s_ease-in-out]"
         mode="horizontal"
         items={itemMdNav}
       />

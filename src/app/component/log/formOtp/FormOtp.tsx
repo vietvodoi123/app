@@ -75,8 +75,11 @@ function FormOtp({}: Props) {
         errors,
         touched,
       }): JSX.Element => (
-        <Form onFinish={handleSubmit}>
-          <div className="text-white text-[32px] text-center mb-7">
+        <Form
+          onFinish={handleSubmit}
+          className="animate-[fade-in-left_1s_ease-in-out]"
+        >
+          <div className="text-white text-[32px] text-center mb-7 ">
             VERIFY OTP
           </div>
           <div className="mb-5">
@@ -84,7 +87,7 @@ function FormOtp({}: Props) {
               label=""
               name="otp"
               errors={errors.otp ? true : false}
-              touched={errors.otp ? true : false}
+              touched={touched.otp ? true : false}
               placeholder={"OTP"}
               value={values.otp}
               handleChange={handleChange}
@@ -98,7 +101,7 @@ function FormOtp({}: Props) {
 
           <div className="flex justify-center mt-7">
             <button type="submit" className="btn-submit">
-              REGISTER
+              CONFIRM
             </button>
           </div>
         </Form>
