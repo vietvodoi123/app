@@ -63,7 +63,7 @@ function Department({ idCompany }: { idCompany: string }) {
         />
         <Button
           className="border-2 border-slate-600 text-slate-600 border-solid"
-          size="large"
+          size="middle"
           onClick={() => {
             setIsOpen(true);
           }}
@@ -89,7 +89,7 @@ function Department({ idCompany }: { idCompany: string }) {
       {isLoading ||
         (data?.length && (
           <Pagination
-            className=" my-10 flex justify-end"
+            className=" my-10 flex justify-end animate-[fade-in-right_1s_ease-in-out]"
             defaultCurrent={1}
             total={total}
             onChange={(e) => {

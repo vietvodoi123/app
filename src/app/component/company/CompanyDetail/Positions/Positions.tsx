@@ -4,11 +4,11 @@ import CreatePositions from "@/app/modal/CreatePosition/CreatePosition";
 import { IDataPositions } from "@/types";
 import { Button, Empty, Pagination } from "antd";
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
+
 import PositionItem from "./PositionItem/PositionItem";
 import Search from "antd/es/input/Search";
 import LoadingSpin from "@/app/component/LoadingSpin";
-import { Animate, initTE } from "tw-elements";
+
 type Props = { idCompany: string };
 
 function Positions({ idCompany }: Props) {
@@ -59,7 +59,7 @@ function Positions({ idCompany }: Props) {
         />
         <Button
           className="border-2 border-slate-600 text-slate-600 border-solid"
-          size="large"
+          size="middle"
           onClick={() => {
             setIsOpen(true);
           }}
@@ -67,12 +67,7 @@ function Positions({ idCompany }: Props) {
           Create
         </Button>
       </div>
-      <div
-        data-te-animation-init
-        data-te-animation-reset="true"
-        data-te-animation={animate}
-        className="animate-[fade-in-right_1s_ease-in-out]"
-      >
+      <div>
         {isLoading && <LoadingSpin />}
         {isLoading === false && data.length === 0 && (
           <div className=" p-10">
@@ -87,7 +82,7 @@ function Positions({ idCompany }: Props) {
       {isLoading ||
         (data?.length && (
           <Pagination
-            className=" my-10 flex justify-end"
+            className=" my-10 flex justify-end animate-[fade-in-right_1s_ease-in-out]"
             defaultCurrent={1}
             total={total}
             onChange={(e) => {

@@ -44,7 +44,7 @@ function Log() {
           />
         </div>
       )}
-      <div className="container-login">
+      <div className="container-login animate-[fade-in-left_1s_ease-in-out]">
         <Suspense fallback={<Spin size="large" delay={500} />}>
           {key === "sendOtp" && <FormOtp />}
           {key === "signin" && <Login />}

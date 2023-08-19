@@ -12,7 +12,7 @@ function PositionItem({ item }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="grid grid-cols-1 grid-rows-[h-full_1fr] md:grid-rows-1 md:grid-cols-2  mb-6">
+    <div className=" animate-[fade-in-right_1s_ease-in-out] grid grid-cols-1 grid-rows-[h-full_1fr] md:grid-rows-1 md:grid-cols-2  mb-6">
       <img
         src={item.photoPath ? item.photoPath : "/img/background.jpg"}
         alt="img"

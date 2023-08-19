@@ -5,9 +5,15 @@ import { useMutation } from "react-query";
 import ApiCompanies from "@/app/api/ApiCompanies";
 import { IDataCompany } from "@/types";
 
-type Props = { isOpen: boolean; onOk: () => void; onCancel: () => void };
+type Props = {
+  isOpen: boolean;
+  onOk: () => void;
+  onCancel: () => void;
+  setA: (value: number) => any;
+  a: number;
+};
 
-function CreateCompany({ isOpen, onOk, onCancel }: Props) {
+function CreateCompany({ isOpen, onOk, onCancel, setA, a }: Props) {
   const createCompanyMutation = useMutation(ApiCompanies.createCompanies);
 
   const [fileUpload, setfileUpload] = useState<File | null>(null);
@@ -42,7 +48,7 @@ function CreateCompany({ isOpen, onOk, onCancel }: Props) {
     if (form.getFieldValue("displayName")) {
       createCompanyMutation.mutate(form1, {
         onSuccess: (res: IDataCompany) => {
-          console.log(res);
+          setA(a + 1);
           notification.success({
             message: "Create Sucsessfull!",
           });

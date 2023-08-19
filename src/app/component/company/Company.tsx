@@ -101,14 +101,17 @@ function Company() {
             data
               ?.slice(6 * (page - 1), 6 * page)
               .map((item, i) => <CompanyItem key={i} item={item} />)}
-          {isLoading === false && data?.length && (
-            <Empty className="mt-10 col-start-1 col-end-4" />
-          )}
+          {isLoading === false &&
+            (data?.length === 0 ||
+              data?.length === undefined ||
+              data.length === null) && (
+              <Empty className="mt-10 col-start-1 col-end-4" />
+            )}
         </div>
         {isLoading ||
           (data?.length && (
             <Pagination
-              className=" my-10 flex justify-end"
+              className=" my-10 flex justify-end animate-[fade-in-right_1s_ease-in-out]"
               defaultCurrent={1}
               total={total}
               onChange={(e) => {
@@ -127,6 +130,8 @@ function Company() {
         isOpen={isOpen}
         onOk={() => setIsOpen(false)}
         onCancel={() => setIsOpen(false)}
+        setA={setA}
+        a={a}
       />
     </div>
   );

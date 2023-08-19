@@ -4,7 +4,7 @@ import Image from "next/image";
 import "./Navbarr.scss";
 import { BiSolidUser } from "react-icons/bi";
 import { ImKey } from "react-icons/im";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { MdExitToApp, MdNotifications } from "react-icons/md";
 import { CgMenuGridR } from "react-icons/cg";
 import { useDispatch } from "react-redux";
@@ -15,10 +15,10 @@ import { persistor } from "@/redux/store";
 import { logoutUser } from "@/redux/slice/UserSlice";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { setNavKey } from "@/redux/slice/NavSlice";
+import LoadingSpin from "../LoadingSpin";
 
 function Navbar() {
   const dispatch = useDispatch();
-  const [openMenu, setOpenMenu] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
   const { data } = useQuery("data", ApiUser.getMe);
 
@@ -89,19 +89,20 @@ function Navbar() {
     {
       label: (
         <div className="flex justify-between items-center">
-          <img
-            src={data?.avatar ? data.avatar : "/img/avatar/avatar.jpg"}
-            width={30}
-            height={30}
-            alt={"avatar"}
-          />
-          <p className="block md:hidden text-[18px]">{data?.fullName}</p>
+          <Suspense fallback={<LoadingSpin />}>
+            <img
+              src={data?.avatar ? data.avatar : "/img/avatar/avatar.jpg"}
+              width={30}
+              height={30}
+              alt={"avatar"}
+              className="animate-[fade-in_1s_ease-in-out]"
+            />
+            <p className="block md:hidden text-[18px]">{data?.fullName}</p>
+          </Suspense>
         </div>
       ),
       key: "user",
-      onMouseEnter: () => {
-        setOpenMenu(true);
-      },
+
       children: [
         {
           label: (
@@ -161,9 +162,6 @@ function Navbar() {
         </div>
       ),
       key: "user",
-      onMouseEnter: () => {
-        setOpenMenu(true);
-      },
       children: [
         {
           label: (
